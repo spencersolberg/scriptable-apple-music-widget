@@ -23,4 +23,4 @@ You can do this by tapping the three dots in the top right, tapping share, and t
 | :----------------------------: | :---------------------------: | :-----------------------------: |
 |  ![](readme/copy_step_one.png) | ![](readme/copy_step_two.png) | ![](readme/copy_step_three.png) |
 ### Step 3
-Run the helper Shortcut, which will tell you the rest of what you need to know
+Run the helper Shortcut and paste your link. The Shortcut should guide you from there :)
