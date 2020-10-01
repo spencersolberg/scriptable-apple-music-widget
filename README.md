@@ -30,7 +30,7 @@ To add a widget to your phone, tap and hold a blank space on one of your home sc
 | :--------------------------: | :--------------------------: | :----------------------------: |
 | ![](readme/add_step_one.png) | ![](readme/add_step_two.png) | ![](readme/add_step_three.png) |
 ### Step 5 - Configure Widget
-To configure your widget, stay in jiggle mode and tap the widget. This will open up the configurator menu. Paste your clipboard into the "Parameter" field, and choose the name of the script you added back in [Step 1](https://github.com/heyitzspencer/scriptable-apple-music-widget#step-1).
+To configure your widget, stay in jiggle mode and tap the widget. This will open up the configurator menu. Paste your clipboard into the "Parameter" field, and choose the name of the script you added back in [Step 1](https://github.com/heyitzspencer/scriptable-apple-music-widget#step-1). You can ignore the "When Interacting" field.
 | Tap Widget (Jiggle Mode)        | Paste Clipboard                 | Set Name                          |
 | :-----------------------------: | :-----------------------------: | :-------------------------------: |
 | ![](readme/config_step_one.png) | ![](readme/config_step_two.png) | ![](readme/config_step_three.png) |
