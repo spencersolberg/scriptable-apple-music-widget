@@ -15,38 +15,50 @@ function createWidget() {
   
   bgg.colors = [new Color("#FB5C74"), new Color("#FA233B")];
   bgg.locations = [0, 1];
-  let files = FileManager.iCloud();
-  
-  let artwork = files.readImage(files.documentsDirectory() + "/" + argsString + ".png");
-  
-  let dictionaryString = files.readString(files.documentsDirectory() + "/" + argsString + ".json");
-  let dictionary = JSON.parse(dictionaryString);
   
   l.backgroundGradient = bgg;
   l.useDefaultPadding();
   
-  let lArtwork = l.addImage(artwork)
-  lArtwork.cornerRadius = 8;
+  let files = FileManager.iCloud();
   
-  if (dictionary.title != "") {
-    l.addSpacer(5);
-    let lTitle = l.addText(dictionary.title);
-    lTitle.font = Font.mediumSystemFont(14);
-    lTitle.lineLimit = 1;
-  }
+  let artworkPath = files.documentsDirectory() + "/" + argsString + ".png"
   
-  if (dictionary.artist != "") {
-    if (dictionary.title == "") {
+  let artworkPromise = files.downloadFileFromiCloud(artworkPath);
+  
+  artworkPromise.then(function () {
+    var artwork = files.readImage(artworkPath);
+    
+    var lArtwork = l.addImage(artwork);
+    lArtwork.cornerRadius = 8;
+  });
+  
+  let dictionaryPath = files.documentsDirectory() + "/" + argsString + ".json";
+  
+  let dictionaryPromise = files.downloadFileFromiCloud(dictionaryPath);
+  
+  dictionaryPromise.then(function () {
+    var dictionary = JSON.parse(files.readString(dictionaryPath));
+  
+    if (dictionary.title != "") {
       l.addSpacer(5);
+      var lTitle = l.addText(dictionary.title);
+      lTitle.font = Font.mediumSystemFont(14);
+      lTitle.lineLimit = 1;
     }
-    let lArtist = l.addText(dictionary.artist);
-    lArtist.font = Font.lightSystemFont(15);
-    lArtist.textColor = new Color("#F4BBD5");
-    lArtist.lineLimit = 1;
-  }
-
-  l.url = dictionary.url;
+    
+    if (dictionary.artist != "") {
+      if (dictionary.title == "") {
+        l.addSpacer(5);
+      }
+      let lArtist = l.addText(dictionary.artist);
+      lArtist.font = Font.lightSystemFont(15);
+      lArtist.textColor = new Color("#F4BBD5");
+      lArtist.lineLimit = 1;
+    }
   
+    l.url = dictionary.url;
+  });
+    
   return l;
   
 }
